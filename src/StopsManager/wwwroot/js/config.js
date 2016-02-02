@@ -3,7 +3,8 @@
     paths: {
         jquery: "../lib/jquery/dist/jquery.min",
         stopsList: "stopsList",
-        distanceCalculator: "distanceCalculator"
+        distanceCalculator: "distanceCalculator",
+        routeRenderer: "routeRenderer"
     },
     shim: {
         jquery: {

@@ -1,4 +1,4 @@
-﻿define("stopsList", ["jquery", "distanceCalculator"], function ($, distanceCalculator) {
+﻿define("stopsList", ["jquery", "distanceCalculator", "routeRenderer"], function ($, distanceCalculator, routeRenderer) {
     var stopFrom = null;
     var stopTo = null;
 
@@ -7,8 +7,19 @@
             return;
         }
 
-        var distance = distanceCalculator.getDistanceFromLatLonInKm(stopFrom.latitude, stopFrom.longitude, stopTo.latitude, stopFrom.longitude);
-        $("#distance").val(Number((distance).toFixed(2))+ " km");
+        var distance = distanceCalculator.getDistanceFromLatLonInKm(stopFrom.latitude, stopFrom.longitude, stopTo.latitude, stopTo.longitude);
+        $("#distance").val(Number((distance).toFixed(2)) + " km");
+
+        routeRenderer.calculateAndDisplayRoute({
+            lat: stopFrom.latitude,
+            lng: stopFrom.longitude
+        }, {
+            lat: stopTo.latitude,
+            lng: stopTo.longitude
+        }, function(metrics) {
+            $("#distanceGoogle").val(metrics.distance);
+            $("#timeGoogle").val(metrics.time);
+        });
     }
 
     function init() {
@@ -20,6 +31,8 @@
             center: { lat: 40.78, lng: -73.95 },
             zoom:13
         });
+
+        routeRenderer.init(map);
 
         //todo load stops in parts
         $.ajax({
