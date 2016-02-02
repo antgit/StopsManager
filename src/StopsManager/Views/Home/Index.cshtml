@@ -1,5 +1,15 @@
-﻿@section Scripts{
-    <script type="text/javascript">
-        alert(1);
-    </script>
+﻿<div id="map">
+</div>
+
+@section Scripts{
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt70JiYwBBxY7AfW70WNXtnc6LOr_dp9U&callback=initMap"></script>
+
+<script type="text/javascript">
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8
+        });
+    }
+</script>
 }
