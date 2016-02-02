@@ -3,7 +3,6 @@
 	"private": true,
   "dependencies": {
     "jquery": "2.2.0",
-    "requirejs": "2.1.22",
-    "bootstrap-min-only": "3.3.5"
+    "requirejs": "2.1.22"
   }
 }
