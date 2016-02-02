@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using StopsManager.Infrastructure;
 using StopsManager.Repositories;
 
 namespace StopsManager
@@ -14,6 +15,7 @@ namespace StopsManager
             services.AddMvc();
 
             services.AddTransient<StopsRepository>();
+            services.AddTransient<CvsParser>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
