@@ -10,10 +10,7 @@ namespace StopsManager.Controllers
 
         public HomeController(StopsRepository stopsRepository)
         {
-            if (stopsRepository == null)
-            {
-                throw new ArgumentNullException(nameof(stopsRepository));
-            }
+            if (stopsRepository == null) throw new ArgumentNullException(nameof(stopsRepository));
 
             _stopsRepository = stopsRepository;
         }
