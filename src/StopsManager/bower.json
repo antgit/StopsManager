@@ -2,6 +2,7 @@
 	"name": "ASP.NET",
 	"private": true,
   "dependencies": {
+    "jquery": "2.2.0",
     "requirejs": "2.1.22"
   }
 }
