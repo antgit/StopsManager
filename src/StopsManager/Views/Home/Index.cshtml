@@ -1,32 +1,5 @@
-﻿<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <form class="navbar-form">
-            <div class="form-group">
-                <label for="inputFrom" class="control-label">From</label>
-                <input type="text" class="form-control" id="inputFrom" readonly="readonly">
-            </div>
-            <div class="form-group">
-                <label for="inputTo" class="control-label">To</label>
-                <input type="text" class="form-control" id="inputTo" readonly="readonly">
-            </div>
-            <div class="form-group">
-                <label for="distance" class="control-label">Disance</label>
-                <input type="text" class="form-control" id="distance" readonly="readonly">
-            </div>
-            <div class="form-group">
-                <label for="distanceGoogle" class="control-label">Disance Google</label>
-                <input type="text" class="form-control" id="distanceGoogle" readonly="readonly">
-            </div>
-            <div class="form-group">
-                <label for="timeGoogle" class="control-label">Time Google</label>
-                <input type="text" class="form-control" id="timeGoogle" readonly="readonly">
-            </div>
-        </form>
-    </div>
-</nav>
-
-<div id="map">
-</div>
+﻿<div id="right-panel"></div>
+<div id="map"></div>
 
 @section Scripts{
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt70JiYwBBxY7AfW70WNXtnc6LOr_dp9U&callback=initMap"></script>

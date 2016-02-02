@@ -1,14 +1,16 @@
 ﻿define("stopsList", ["jquery", "distanceCalculator", "routeRenderer", "infoWindow"], function ($, distanceCalculator, routeRenderer, infoWindow) {
     var stopFrom = null;
     var stopTo = null;
+    var map = null;
 
-    function recalculateDistance() {
+    function showInfoWindowAndRoute() {
+        infoWindow.close();
+
         if (!stopFrom || !stopTo) {
             return;
         }
 
         var distance = distanceCalculator.getDistanceFromLatLonInKm(stopFrom.latitude, stopFrom.longitude, stopTo.latitude, stopTo.longitude);
-        $("#distance").val(Number((distance).toFixed(2)) + " km");
 
         routeRenderer.calculateAndDisplayRoute({
             lat: stopFrom.latitude,
@@ -16,15 +18,18 @@
         }, {
             lat: stopTo.latitude,
             lng: stopTo.longitude
-        }, function(metrics) {
-            $("#distanceGoogle").val(metrics.distance);
-            $("#timeGoogle").val(metrics.time);
+        }, function (route) {
+            infoWindow.openOnRoute({
+                map: map, 
+                route: route,
+                distance: distance
+            });
         });
     }
 
     function init() {
         //todo move google to dependencies
-        var map = new google.maps.Map(document.getElementById("map"), {
+        map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: 40.78, lng: -73.95 },
             zoom:13
         });
@@ -48,15 +53,13 @@
                     infoWindow.openOnMarker(map, marker, stop);
 
                     $("#aFrom").click(function() {
-                        $("#inputFrom").val(stop.name);
                         stopFrom = stop;
-                        recalculateDistance();
+                        showInfoWindowAndRoute();
                     });
 
                     $("#aTo").click(function () {
-                        $("#inputTo").val(stop.name);
                         stopTo = stop;
-                        recalculateDistance();
+                        showInfoWindowAndRoute();
                     });
                 });
             });

@@ -22,15 +22,7 @@
 
                 if (callback && response.routes.length > 0) {
                     var route = response.routes[0];
-
-                    if (route.legs.length > 0) {
-                        var leg = route.legs[0];
-
-                        callback({
-                            distance: leg.distance.text,
-                            time: leg.duration.text
-                        });
-                    }
+                    callback(route);
                 }
             } else {
                 window.alert("Directions request failed due to " + status);
