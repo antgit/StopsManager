@@ -16,6 +16,7 @@ namespace StopsManager
 
             services.AddTransient<StopsRepository>();
             services.AddTransient<CvsParser>();
+            services.AddTransient<ObjectToJsonSerializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
