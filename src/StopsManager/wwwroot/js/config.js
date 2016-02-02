@@ -2,7 +2,8 @@
     baseUrl: "/js",
     paths: {
         jquery: "../lib/jquery/dist/jquery.min",
-        stopsList: "stopsList"
+        stopsList: "stopsList",
+        distanceCalculator: "distanceCalculator"
     },
     shim: {
         jquery: {
