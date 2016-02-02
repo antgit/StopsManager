@@ -4,7 +4,8 @@
         jquery: "../lib/jquery/dist/jquery.min",
         stopsList: "stopsList",
         distanceCalculator: "distanceCalculator",
-        routeRenderer: "routeRenderer"
+        routeRenderer: "routeRenderer",
+        infoWindow: "infoWindow"
     },
     shim: {
         jquery: {
