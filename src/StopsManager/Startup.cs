@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using StopsManager.Repositories;
 
 namespace StopsManager
 {
@@ -11,6 +12,8 @@ namespace StopsManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddTransient<StopsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
