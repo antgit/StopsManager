@@ -19,11 +19,7 @@
             lat: stopTo.latitude,
             lng: stopTo.longitude
         }, function (route) {
-            infoWindow.openOnRoute({
-                map: map, 
-                route: route,
-                distance: distance
-            });
+            infoWindow.openOnRoute(map, route, distance);
         });
     }
 

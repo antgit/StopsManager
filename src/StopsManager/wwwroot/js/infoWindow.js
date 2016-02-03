@@ -29,22 +29,22 @@
         lastOpenedInfoWindow = infoWindow;
     }
 
-    function openOnRoute(options) {
+    function openOnRoute(map, route, distance) {
         close();
 
-        if (options.route.legs.length > 0) {
-            var leg = options.route.legs[0];
+        if (route.legs.length > 0) {
+            var leg = route.legs[0];
             var step = Math.floor(leg.steps.length / 2);
 
             var infoWindow = new google.maps.InfoWindow();
 
             infoWindow.setContent(
-                "<b>Distance:</b> " + Number((options.distance).toFixed(1)) + " km<br>"+
+                "<b>Distance:</b> " + Number((distance).toFixed(1)) + " km<br>"+
                 "<b>Google distance:</b> " + leg.distance.text + "<br>" +
                 "<b>Google time:</b> " + leg.duration.text);
 
             infoWindow.setPosition(leg.steps[step].end_location);
-            infoWindow.open(options.map);
+            infoWindow.open(map);
 
             lastOpenedInfoWindow = infoWindow;
         }
